@@ -1,0 +1,26 @@
+public class LeaseTrackingTriggerHandler {
+
+    public static void method1(List<Lease_Tracking__c> lt1) {
+        for (Lease_Tracking__c lt2 : lt1) {
+            if (lt2.Amount_to_be_paid_c > (lt2.Total_rent_Yearly_c) / 2) {
+                // Accessing the email from the related Tenant object via the Related_Tenant__c relationship
+                String tenantEmail = lt2.Related_Tenant_r.Email_c; 
+
+                // Check if the email is not blank
+                if (String.isNotBlank(tenantEmail)) {
+                    Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+                    List<String> toAddresses = new List<String>{tenantEmail};
+                    email.setToAddresses(toAddresses);
+                    email.setSubject('Regarding the Pending Rent');
+                    email.setPlainTextBody(
+                        'Hello, This is a reminder for you to complete your due rent by the end of this month. Your due rent that needs to be paid is ' + 
+                        lt2.Amount_to_be_paid__c
+                    );
+
+                    List<Messaging.Email> emails = new List<Messaging.Email>{email};
+                    Messaging.sendEmail(emails);
+                }
+            }
+        }
+    }
+}
