@@ -1,0 +1,7 @@
+trigger LeaseTrackingTrigger on Lease_Tracking__c (After insert, After update) {
+
+    if (Trigger.isAfter && Trigger.isUpdate) {
+        // Passing the updated records (Trigger.new) to the handler method
+        LeaseTrackingTriggerHandler.method1(Trigger.new);
+    }
+}
