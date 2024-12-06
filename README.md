@@ -41,9 +41,15 @@ Deploy custom objects, fields, tabs, and the Lightning app.
 Set up necessary flows, Apex triggers, and asynchronous tasks.
 Run and Test
 
+
 Insert sample records for testing.
 Validate that all flows, triggers, and reports work as expected.
 Usage
 Access custom objects through the navigation tabs.
 Use the Lightning app interface to manage tenants, leases, and maintenance records.
 Generate reports to analyze lease status, tenant interactions, and more.
+
+
+
+Demo video link:
+https://drive.google.com/file/d/1GFjRXo5iSLCAYGp7Qw-PCicXY12_m0q_/view?usp=drivesdk
